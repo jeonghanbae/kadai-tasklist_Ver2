@@ -2,8 +2,8 @@
 
 <ul>
   <% @tasks.each do |task| %>
-    <li><%= link_to task.id, task %> : <%= task.content %></li>
+    <li><%= link_to task.id, task %> : <%= task.content %>&gt; <%= task.status %></li>
   <% end %>
 </ul>
-
+<p>※内容は10文字以内、空白はなしで入力しましょう</p>
 <%= link_to '新規Taskの投稿', new_task_path %>
