@@ -6,8 +6,8 @@ class TasksController < ApplicationController
     
   def index
     if logged_in?
-        @task = current_user.tasks.build
-        @tasks = current_user.tasks
+      @task = current_user.tasks.build(params[:id])
+      @tasks = current_user.tasks(params[:id])
     end
   end
 
@@ -51,7 +51,6 @@ class TasksController < ApplicationController
     redirect_to tasks_url     
   end
   
-  
   private
 
   def set_task
@@ -63,10 +62,10 @@ class TasksController < ApplicationController
   end
   
   def correct_user
-    @task = current_user.task.find_by(id: params[:id])
+    @task = current_user.tasks.find_by(id: params[:id])
     unless @task
-      redirect_to root_url
+      redirect_to tasks_url
     end
   end
-
+  
 end

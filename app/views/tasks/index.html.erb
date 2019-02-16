@@ -16,6 +16,7 @@
             <td><%= link_to task.id, task %></td>
             <td><%= task.content %></td>
             <td><%= task.status %></td>
+            
           </tr>
         <% end %>
       </tbody>
@@ -24,7 +25,6 @@
 <%= link_to '新規Taskの投稿', new_task_path, class: "btn btn-primary" %>
 
 <% else %>
-
 <div class="center jumbotron">
   <div class="text-center">
     <h1>Welcome to the TaskApp</h1>
