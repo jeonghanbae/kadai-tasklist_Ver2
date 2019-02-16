@@ -6,7 +6,6 @@ class TasksController < ApplicationController
     
   def index
     if logged_in?
-      @task = current_user.tasks.build(params[:id])
       @tasks = current_user.tasks(params[:id])
     end
   end
